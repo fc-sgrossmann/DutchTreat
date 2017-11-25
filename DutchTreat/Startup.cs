@@ -30,6 +30,7 @@ namespace DutchTreat
 			//    await context.Response.WriteAsync("<h1>Hello Stefan!</h1>");
 			//});
 
+			app.UseDefaultFiles();
 			app.UseStaticFiles();
         }
     }
