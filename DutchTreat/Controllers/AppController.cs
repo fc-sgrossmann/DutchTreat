@@ -15,5 +15,20 @@ namespace DutchTreat.Controllers
         {
             return View();
         }
+
+        [HttpGet("kontakt")]
+        public IActionResult Kontakt()
+        {
+            ViewBag.Title = "Kontaktieren Sie uns";
+            return View();
+        }
+
+        [HttpGet("info")]
+        public IActionResult Info()
+        {
+            ViewBag.Title = "Über uns";
+            return View();
+        }
+
     }
 }
