@@ -1,1 +1,23 @@
-﻿<h2>@ViewBag.Title</h2>
+﻿@model KontaktViewModel
+@{
+    ViewBag.Title = "kontaktieren Sie uns";
+    }
+<form method="post">
+    <label asp-for="name">Name:</label>
+    </br>
+    <input asp-for="name" />
+    <br />
+    <label asp-for="email">E-Mail:</label>
+    <br />
+    <input type="email" asp-for="email" />
+    <br />
+    <label asp-for="betreff">Betreff:</label>
+    <br />
+    <input type="text" asp-for="betreff"/>
+    <br />
+    <label asp-for="nachricht">Nachricht:</label>
+    <br />
+    <textarea rows="4" asp-for="nachricht"></textarea>
+    <br />
+    <input type="submit" value="Nachricht senden" />
+</form>
