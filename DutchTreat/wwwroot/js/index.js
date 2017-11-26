@@ -24,7 +24,5 @@
 		$popupForm.fadeToggle(1000);
 	});
 
-
-
 });
 
