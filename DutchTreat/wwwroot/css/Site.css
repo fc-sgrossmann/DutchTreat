@@ -74,6 +74,10 @@ menu li{
 }
 
     menu li::after {
-        content: '|';
+        content: ' |';
+    }
+
+    menu li:last-of-type::after {
+        content: "";
     }
 

@@ -33,8 +33,7 @@ namespace DutchTreat.Controllers
         [HttpGet("info")]
         public IActionResult Info()
         {
-            ViewBag.Title = "Über uns";
-            return View();
+             return View();
         }
 
     }
