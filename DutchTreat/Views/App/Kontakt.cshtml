@@ -2,22 +2,34 @@
 @{
     ViewBag.Title = "Kontaktieren Sie uns";
     }
-<form method="post">
-    <label asp-for="name">Name:</label>
-    </br>
-    <input asp-for="name" />
-    <br />
-    <label asp-for="email">E-Mail:</label>
-    <br />
-    <input type="email" asp-for="email" />
-    <br />
-    <label asp-for="betreff">Betreff:</label>
-    <br />
-    <input type="text" asp-for="betreff"/>
-    <br />
-    <label asp-for="nachricht">Nachricht:</label>
-    <br />
-    <textarea rows="4" asp-for="nachricht"></textarea>
-    <br />
-    <input type="submit" value="Nachricht senden" />
-</form>
+
+@section scripts {
+
+}
+    <div class="page-header">
+        <h1 style="color: green">Ihre Nachricht an uns</h1>      
+    </div>
+    <form method="post" class="w3-container w3-card-4 w3-light-grey" style="padding: 10px">
+	    <div asp-validation-summary="ModelOnly" class="w3-panel w3-red w3-round-large"></div>
+        <label asp-for="name">Ihr Name:</label>
+        <br />
+        <input asp-for="name" class="w3-input w3-border w3-round" style="width: 300px" />
+        <span asp-validation-for="Name"></span>
+	    <br />
+        <label asp-for="email">Ihre E-Mail-Adresse:</label>
+        <br />
+        <input type="email" asp-for="email" class="w3-input w3-border w3-round" style="width: 300px"/>
+        <span asp-validation-for="email"></span>
+        <br />
+        <label asp-for="betreff">Betreff:</label>
+        <br />
+        <input type="text" asp-for="betreff" class="w3-input w3-border w3-round" style="width: 500px"/>
+        <span asp-validation-for="betreff"></span>
+        <br />
+        <label asp-for="nachricht">Nachricht:</label>
+        <br />
+        <textarea rows="4" asp-for="nachricht" class="w3-input w3-border w3-round" style="width: 500px"></textarea>
+        <span asp-validation-for="nachricht"></span>
+        <br />
+        <input id="emailSubmit" class="w3-button w3-green" type="submit" value="Nachricht senden"/>
+    </form>
