@@ -1,25 +1,25 @@
 ﻿using System;
-using System.Net.Mail;
-using System.Net;
 using DutchTreat.ViewModels;
 using Microsoft.Extensions.Logging;
 
-namespace DutchTreat.Classes
+namespace DutchTreat.Services
 {
-    public class email
+    public class EmailService : IEmailService
     {
-        private readonly ILogger<email> _logger;
-        public email(ILogger<email> logger)
+        private readonly ILogger<EmailService> _logger;
+        public EmailService(ILogger<EmailService> logger)
         {
             _logger = logger;
         }
 
-        public email(KontaktViewModel contact)
+        public void SendMessage(KontaktViewModel contact)
         {
-            if(String.IsNullOrEmpty(contact.nachricht) || String.IsNullOrEmpty(contact.betreff)) {
+            if (String.IsNullOrEmpty(contact.nachricht) || String.IsNullOrEmpty(contact.betreff))
+            {
                 return;
             }
-            try {
+            try
+            {
                 String an = "stefan.grossmann68@gmail.com";
                 //SmtpClient client = new SmtpClient("smtp.strato.de");
                 //client.UseDefaultCredentials = false;
@@ -33,7 +33,8 @@ namespace DutchTreat.Classes
                 //client.Send(mailMessage);
                 _logger.LogInformation($"An: {an} Betreff: {contact.betreff} Nachricht: {contact.nachricht}");
             }
-            catch(Exception ex) {
+            catch (Exception ex)
+            {
                 throw new ApplicationException(ex.ToString());
             }
         }

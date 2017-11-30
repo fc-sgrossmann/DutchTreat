@@ -4,7 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using DutchTreat.ViewModels;
-using DutchTreat.Classes;
+using DutchTreat.Services;
 
 // For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -12,6 +12,13 @@ namespace DutchTreat.Controllers
 {
     public class AppController : Controller
     {
+        private readonly IEmailService _mailservice;
+
+        public AppController(IEmailService mailService){
+            _mailservice = mailService;
+        }
+
+
         // GET: /<controller>/
         public IActionResult Index()
         {
@@ -28,10 +35,9 @@ namespace DutchTreat.Controllers
         public IActionResult Kontakt(KontaktViewModel model)
         {
             if (ModelState.IsValid) { 
-                email mymail = new email(model);
-            }
-            else {
-                // show the errors
+                _mailservice.SendMessage(model);
+                ViewBag.UserMessage = "Nachricht gesendet!";
+                ModelState.Clear();
             }
             return View();
        }
