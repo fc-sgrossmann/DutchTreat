@@ -3,42 +3,8 @@
 <head>
     <meta charset="utf-8" />
     <title>Dutch Treat : @ViewBag.Title</title>
+    <link href="~/lib/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />		
     <link href="~/css/Site.css" rel="stylesheet" />
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-  #  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-		  <style>
-  .jumbotron {
-      background-color: green;
-      color: #fff;
-      padding: 100px 25px;
-  }
- 
-  .bg-grey {
-      background-color: #f6f6f6;
-  }
-  .logo-small {
-      color: #f4511e;
-      font-size: 50px;
-  }
-  .logo {
-      color: #f4511e;
-      font-size: 200px;
-  }
-  .thumbnail {
-      padding: 0 0 15px 0;
-      border: none;
-      border-radius: 0;
-  }
-  .thumbnail img {
-      width: 100%;
-      height: 100%;
-      margin-bottom: 10px;
-  }
-
-  </style>
 </head>
 <body>
     <header>
@@ -46,16 +12,19 @@
               <div class="container-fluid">
                 <div class="navbar-header">
                   <a class="navbar-brand" asp-controller="App" asp-action="Index">Dutch Treat</a>
+                  <button class="navbar-toggle" data-toggle="collapse" data-target="#menu">&#9776;</button>
                 </div>
-                <ul class="nav navbar-nav">
-                    <li><a asp-controller="App" asp-action="Index">Home</a></li>
-                    <li><a asp-controller="App" asp-action="Kontakt">Kontakt</a></li>
-                    <li><a asp-controller="App" asp-action="Info">Über uns</a></li>
-                </ul>
-                <ul class="nav navbar-nav navbar-right">
-                  <li><a href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
-                  <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
-                </ul>
+				<div id="menu" class= "collapse navbar-collapse">
+					<ul class="nav navbar-nav">
+                        <li><a asp-controller="App" asp-action="Index">Home</a></li>
+                        <li><a asp-controller="App" asp-action="Kontakt">Kontakt</a></li>
+                        <li><a asp-controller="App" asp-action="Info">Über uns</a></li>
+                    </ul>
+                    <ul class="nav navbar-nav navbar-right">
+                      <li><a href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+                      <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+                    </ul>
+				</div>
           </div>
         </nav>
 	</header>
@@ -64,12 +33,13 @@
             @RenderBody()
         </div>
 	</section>
-        <footer>
-            <div class="container" align="center">
-			    Copyright 2017 - Stefan Grossmann
-            </div>
-		</footer>
+		<div class="container" align="center">
+            <footer>
+    			    Copyright 2017 - Stefan Grossmann
+            </footer>
+		</div>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.min.js"></script>
     <script src="~/js/index.js"></script>
 	@RenderSection("scripts", false)
 </body>
