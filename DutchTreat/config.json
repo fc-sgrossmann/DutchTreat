@@ -1,0 +1,11 @@
+﻿{
+  "ConnectionStrings": {
+    "DutchConnectionString": "server=FNCON-DELL\\MSSQLSERVER2016;Database=DutchTreatDb;user=sa;password=Marco3dkv6u;MultipleActiveResultSets=true;"
+  },
+    "Logging": {
+      "LogLevel": {
+        "Default": "Information",
+        "Microsoft":  "Warning"
+      }
+    }
+  }
